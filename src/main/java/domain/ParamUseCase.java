@@ -1,6 +1,6 @@
 package domain;
 
-public interface UseCase {
+public interface ParamUseCase {
 
     Object invoke(Object object);
 }

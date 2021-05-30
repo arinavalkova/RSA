@@ -2,24 +2,24 @@ package presentation.window;
 
 import data.rsa.RSA;
 import domain.AnswerReceiver;
-import domain.DecipherUseCase;
-import domain.EncryptUseCase;
+import domain.DecipherParamUseCase;
+import domain.EncryptParamUseCase;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 
 public class WindowViewModel implements AnswerReceiver {
 
-    private final DecipherUseCase decipherUseCase;
-    private final EncryptUseCase encryptUseCase;
+    private final DecipherParamUseCase decipherUseCase;
+    private final EncryptParamUseCase encryptUseCase;
 
     private final StringProperty encryptedProperty = new SimpleStringProperty();
     private final StringProperty decodedProperty = new SimpleStringProperty();
 
     public WindowViewModel() {
         RSA rsa = new RSA();
-        decipherUseCase = new DecipherUseCase(rsa, decodedProperty, this);
-        encryptUseCase = new EncryptUseCase(rsa, encryptedProperty, this);
+        decipherUseCase = new DecipherParamUseCase(rsa, decodedProperty, this);
+        encryptUseCase = new EncryptParamUseCase(rsa, encryptedProperty, this);
     }
 
     public void encAndDec(String message) {
